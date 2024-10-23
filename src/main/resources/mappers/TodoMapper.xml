@@ -14,5 +14,16 @@
 					id, subject, body, completed
 				FROM ENCORE_TODO_TBL 
 				WHERE id = #{id};
-    </select>
+	</select>
+
+	<insert id="insertTodo">
+		INSERT INTO ENCORE_TODO_TBL(SUBJECT, BODY, COMPLETED)
+		VALUES (#{subject}, #{body}, #{completed})
+	</insert>
+
+
+
+
+
+
 </mapper>
