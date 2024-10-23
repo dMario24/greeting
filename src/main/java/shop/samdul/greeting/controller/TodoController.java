@@ -19,7 +19,7 @@ public class TodoController{
 	@GetMapping("/todos")
 	public List<TodoEntity> list() {
 		System.out.println("[Controller]");
-		java.util.List<TodoEntity> r = todoService.getTodos();
+		List<TodoEntity> r = todoService.getTodos();
 		return r;	
 	}
 	
@@ -29,9 +29,9 @@ public class TodoController{
 		return r;	
 	}
 
-	//C
+	//C - INSERT
 
-	//U
+	//U - UPDATE
 
-	//D
+	//D - DELTE
 }
