@@ -2,11 +2,11 @@ package shop.samdul.greeting.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import shop.samdul.greeting.repository.TodoRepository;
 
 import shop.samdul.greeting.entity.TodoEntity;
-import shop.samdul.greeting.mapper.TodoMapper;
-
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoJpaService {
@@ -14,7 +14,7 @@ public class TodoJpaService {
 	
   @Autowired
   public TodoJpaService(TodoRepository todoRepository) {
-	this.todoRepository = todoRepository;
+	  this.todoRepository = todoRepository;
   }
 
   public List<TodoEntity> getAllTodos() {
@@ -33,11 +33,13 @@ public class TodoJpaService {
       Optional<TodoEntity> existingTodoOpt = todoRepository.findById(id);
 
       if (existingTodoOpt.isPresent()) {
-	 TodoEntity existingTodo = existingTodoOpt.get();
-	 existingTodo.setSubject(todoEntity.getSubject());
-         existingTodo.setBody(todoEntity.getBody());
-         existingTodo.setCompleted(todoEntity.getCompleted());
-	 return todoRepository.save(existingTodo);
+        TodoEntity existingTodo = existingTodoOpt.get();
+        existingTodo.setSubject(todoEntity.getSubject());
+              existingTodo.setBody(todoEntity.getBody());
+              existingTodo.setCompleted(todoEntity.getCompleted());
+        return todoRepository.save(existingTodo);
+      } else {
+        throw new IllegalArgumentException("Todo with id " + id + " not found");
       }
   }
 
