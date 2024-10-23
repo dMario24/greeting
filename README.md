@@ -9,7 +9,7 @@ $ ./gradlew bootRun
 ```
 
 ```bash
-$ ./gradlew build
+$ ./gradlew [build|bootJar]
 $ java -jar build/libs/greeting-0.0.1-SNAPSHOT.jar
 ```
 
@@ -26,6 +26,15 @@ $ docker compose stop
 $ docker compose start
 $ docker compose ls
 $ docker compose  down
+```
+
+### API
+```bash
+# docker
+$ curl -X GET http://localhost:8888/todos
+
+# java -jar
+$ curl -X GET http://localhost:8972/todos
 ```
 
 ### Reference Documentation
