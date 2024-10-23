@@ -35,6 +35,15 @@ $ curl -X GET http://localhost:8888/todos
 
 # java -jar
 $ curl -X GET http://localhost:8972/todos
+
+# 데이터 삽입
+$ curl -X POST -H "Content-Type:application/json" -d '{"subject":"test0", "body":"test0", "completed":0}' http://localhost:8972/todos
+
+# 데이터 수정
+$ curl -X PUT -H "Content-Type:application/json" -d '{"subject":"test4", "body":"test4", "completed":0}' http://localhost:8972/todos/{id}
+
+# 해당 데이터 삭제
+$ curl -X DELETE http://localhost:8972/todos/{id}
 ```
 
 ### Reference Documentation
