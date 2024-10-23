@@ -10,16 +10,16 @@ import java.util.List;
 
 @Service
 public class TodoJpaService {
-	private final TodoRepository todoRepository;
+  private final TodoRepository todoRepository;
 	
-	@Autowired
-	public TodoJpaService(TodoRepository todoRepository) {
-		this.todoRepository = todoRepository;
-	}
+  @Autowired
+  public TodoJpaService(TodoRepository todoRepository) {
+	this.todoRepository = todoRepository;
+  }
 
-	public List<TodoEntity> getAllTodos() {
-	    return todoRepository.findAll();
-	}
+  public List<TodoEntity> getAllTodos() {
+    return todoRepository.findAll();
+  }
 
   public Optional<TodoEntity> getTodoById(Integer id) {
       return todoRepository.findById(id);
