@@ -46,6 +46,36 @@ $ curl -X PUT -H "Content-Type:application/json" -d '{"subject":"test4", "body":
 $ curl -X DELETE http://localhost:8972/todos/{id}
 ```
 
+## API - JPA
+```
+# insert, create
+$ curl -X POST http://localhost:8972/jpatodos \
+     -H "Content-Type: application/json" \
+     -d '{
+           "subject": "Learn Spring Boot",
+           "body": "Study how to build RESTful APIs",
+           "completed": false
+         }'
+
+# select
+$ curl -X GET http://localhost:8972/jpatodos/1
+
+# select all
+$ curl -X GET http://localhost:8972/jpatodos
+
+# update(PUT)
+$ curl -X PUT http://localhost:8972/jpatodos/1 \
+     -H "Content-Type: application/json" \
+     -d '{
+           "subject": "Learn Spring Boot (Updated)",
+           "body": "Study RESTful APIs in depth",
+           "completed": true
+         }'
+
+# 삭제
+$ curl -X DELETE http://localhost:8972/jpatodos/1
+```
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
