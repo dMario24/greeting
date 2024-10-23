@@ -52,7 +52,7 @@ public class TodoJpaController{
 	//U - UPDATE
 	@PutMapping("/{id}")
 	public void updateTodo(@PathVariable Integer id, @RequestBody TodoEntity todoEntity) {
-	    todoJpaService.updateTodo(id, todoEntity);
+	    todoJpaService.updateTodoById(id, todoEntity);
 	}
 
 	//D - DELTE
